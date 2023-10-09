@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Delete
+{% endblock %}
+
+{% block content %}
+<div class="p-4 m-4 bg-light border border-success rounded">
+  <form method="post">
+    {% csrf_token %}
+    <p>{{ object.title }} を削除してよろしいですか?</p>
+    <button type="submit">{{ object.title }} : Delete</button>
+  </form>
+</div>
+{% endblock %}

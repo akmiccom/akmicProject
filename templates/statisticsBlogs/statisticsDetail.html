@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ object.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid container-lg">
+  <div class="p-4 m-4 bg-light border border-success rounded">
+    <h6>Title : {{ object.chapter }}.{{ object.section }} {{ object.title }}</h6>
+    <h6>_Updated at : {{ object.updated_at }} _Created at : {{ object.created_at }}</h6>
+    <div>
+      {{ object.convert_markdown_to_html|safe }}
+    </div>
+    <ul>
+      <a href="{% url 'statisticsList' %}" class="btn btn-primary">Back to blog list</a>
+      <a href="{% url 'statisticsUpdate' object.pk %}" class="btn btn-primary">Update</a>
+      <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-primary">Delete</a>
+    </ul>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  <h1 class="fw-bolder">This is a page of product List etc.</h1>
+  <p class="lead mb-0">We'll start from the basics, so let's do our best.</p>
+{% endblock %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>{{ answer }}</p>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ forms }}
+    <input type='submit' value="click">
+
+{% endblock %}

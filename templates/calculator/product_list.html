@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Statistics
+{% endblock %}
+
+{% block header %}
+  <h1 class="fw-bolder">This is a page of product List etc.</h1>
+  <p class="lead mb-0">We'll start from the basics, so let's do our best.</p>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead>
+      <tr>
+        <th th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">price</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    {% for data in products %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ data.name }}</td>
+        <td>{{ data.price }}</td>
+        <td>{{ data.description }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
