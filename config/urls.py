@@ -6,6 +6,7 @@ from config.views import TopPageView
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
+    
     path('', TopPageView.as_view(), name='topPage'),
     path('markdownx/', include('markdownx.urls')), 
     path('blogs/', include('blogs.urls')),

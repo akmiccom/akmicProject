@@ -1,11 +1,13 @@
 from django.shortcuts import render
-
-from django.views.generic import ListView
+from django.http import HttpResponse
+from django.views.generic import ListView, View
 from calculator.models import Product
 from calculator.forms import CalcPlusForm
 
 from glob import glob
 import csv
+
+
 
 class ProductListView(ListView):
     model = Product
@@ -29,13 +31,26 @@ with open(csvFile, 'r', encoding='utf-8') as file:
 
 def calculatorPlus(request):
     params = {
-        'title': 'CalcPlus',
+        'title': 'Calculator',
         'forms': CalcPlusForm(),
-        'answer': 'Answer is ',
+        'answer': '足し算の答え = ',
     }
     
     if request.method == 'POST':
-        params['answer'] = f'Answer is {str(int(request.POST["value1"])) + str(int(request.POST["value2"]))}'
+        params['answer'] = f'{params["answer"]} {int(request.POST["value1"]) + int(request.POST["value2"])}'
         params['forms'] = CalcPlusForm(request.POST)
         
-        return render(request, 'calcutator/calcPlus.html', params)
+    return render(request, 'calculator/calcPlus.html', params)
+
+
+class CalculatorView(View):
+    def post(self, request):
+        params = {
+            'title': 'Calculator',
+            'forms': CalcPlusForm(),
+            'answer': '足し算の答え = ',
+        }
+        params['answer'] = f'{params["answer"]} {int(request.POST["value1"]) + int(request.POST["value2"])}'
+        params['forms'] = CalcPlusForm(request.POST)
+        
+        return render(request, 'calculator/calcPlus.html', params)

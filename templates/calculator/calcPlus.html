@@ -10,11 +10,14 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ title }}</h1>
-<p>{{ answer }}</p>
-<form action="{% url 'index' %}" method="post">
+<div class="container">
+  
+  <h1>{{ title }}</h1>
+  <form action="{% url 'calcPlus' %}" method="post">
     {% csrf_token %}
-    {{ forms }}
-    <input type='submit' value="click">
+    {{ forms.as_p }}
+    <input type="submit" value="click">
+    <p>{{ answer }}</p>
+</div>
 
 {% endblock %}
