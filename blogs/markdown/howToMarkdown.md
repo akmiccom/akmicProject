@@ -1,3 +1,9 @@
+---
+title : How to markdown
+Category : python
+Author : Makoto Yaugchi
+---
+
 # How to markdown
 
 markdown記法のまとめ
@@ -23,7 +29,7 @@ markdown記法のまとめ
 |      Link       | \[title](http://www.example.com) |
 |      Image      | \!\[alt text](img/image.jpg)     |
 |     Escape      | \                                |
-| Hoeizontal Rule | ---                              |
+| Hoeizontal Rule | --- *** ___                      |
 | Space | \&thinsp;&nbsp; <br> &nbsp <br> &ensp <br> &emsp |
 
 ## Extended Syntax

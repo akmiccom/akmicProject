@@ -33,3 +33,4 @@ for file in glob(r'blogs/markdown/*.md'):
 # ]
     
 # Blog.objects.bulk_create(items_to_create)
+

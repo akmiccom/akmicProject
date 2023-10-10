@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.conf import settings
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from blogs.models import Blog
 from markdown import Markdown
 from glob import glob
 import re
+import os
+
 
 class ListBlogView(ListView):
     model = Blog
@@ -34,28 +37,32 @@ class DeleteBlogView(DeleteView):
 
 # Blogモデルに外部markdownからテキストを追加
 def readMarkdown(file):
-    # read markdown and output title, text
-    with open(file, encoding='utf-8', mode='r') as f:
-        result = f.readlines()
-        title = [t.rstrip() for t in result if '# ' in t][0].replace('# ', '')
-        author = [t.rstrip() for t in result if 'Author : ' in t][0].replace('Author : ', '')
-        category = [t.rstrip() for t in result if 'Category : ' in t][0].replace('Category : ', '')
-        allText = [t.rstrip() for t in result if re.search(r'^(?!# ).+$', t)]
-        pos = allText.index('## note')
-        markdownText = '\n'.join(allText[:pos])
-        md = Markdown(extensions=['extra'])
-        text = md.convert(markdownText)
+    with open(file, 'r', encoding='utf-8') as f:
+        lines = [t.strip() for t in f.readlines()]
+        start, end = [i for i, t in enumerate(lines) if re.search(r'^-{3}', t)]
+    
+    metadata = {}
+    metadata_lines = lines[start+1:end]
+    for metadata_line in metadata_lines:
+        key, value = metadata_line.split(':')
+        metadata[key.strip().lower()] = value.strip().capitalize()
+    
+    md = Markdown(extensions=['extra'])
+    markdown = md.convert('\n'.join(lines[end+1:]))
         
-    return title, category, author, text
+    return metadata['title'], metadata['category'], metadata['author'], markdown
 
-for file in glob(r'blogs/markdown/*.md'):
+
+
+markdown_dir = os.path.join(settings.BASE_DIR, 'blogs', 'markdown')
+for file in glob(f'{markdown_dir}/*.md'):
     title, category, author, text = readMarkdown(file)
     # update_or_create
     Blog.objects.update_or_create(
         title=title,
         author=author,
-        category=category,
         defaults={
+            'category': category,
             'text': text,
             },
         )

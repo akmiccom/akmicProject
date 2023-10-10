@@ -1,3 +1,9 @@
+---
+title : How to Visual Studio Code
+Category : python
+Author : Makoto Yaugchi
+---
+
 # How to Visual Studio Code
 
 [TOC]

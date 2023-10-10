@@ -1,9 +1,16 @@
-<!-- blog title -->
+---
+title : How to django
+category : python
+author : Makoto Yaugchi
+---
+
 # How To django
 
 [TOC]
 
 ## 調査履歴
+
+結構難しい
 
 ### update_or_create()
 []()
@@ -145,9 +152,3 @@ TemplateViewの説明
    1. INSTALLED_APPSの設定
    2. templatesの設定
 
-
-
-## note
-<!-- 変更すると新しいBlogが作成される -->
-Category : python
-Author : Makoto Yaugchi

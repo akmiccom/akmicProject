@@ -35,6 +35,7 @@ class CalculatorView(View):
         form = CalculatorForm()
         result = None
         params = {
+            'title': 'Simple Calculator',
             'form': form,
             'result': result,
         }

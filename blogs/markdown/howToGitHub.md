@@ -1,3 +1,9 @@
+---
+Title : How to Github
+Category : python
+Author : Makoto Yaugchi
+---
+
 # How To GitHub
 
 [TOC]

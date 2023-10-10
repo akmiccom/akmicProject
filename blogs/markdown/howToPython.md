@@ -1,3 +1,9 @@
+---
+title : How to python
+Category : python
+Author : Makoto Yaugchi
+---
+
 # How To python
 
 ## python の使い方

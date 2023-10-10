@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogs.apps.BlogsConfig',
+    # 'blog.apps.BlogConfig',
     'accounts.apps.AccountsConfig',
     'statisticsBlogs.apps.StatisticsblogsConfig',
     'calculator.apps.CalculatorConfig',
