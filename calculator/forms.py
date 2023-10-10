@@ -1,6 +1,7 @@
 from django import forms
 
 
-class CalcPlusForm(forms.Form):
-    value1 = forms.IntegerField(label='1つ目の数値')
-    value2 = forms.IntegerField(label='2つ目の数値')
+class CalculatorForm(forms.Form):
+    num1 = forms.FloatField(label='Number 1')
+    num2 = forms.FloatField(label='Number 2')
+    operator = forms.ChoiceField(choices=[('+', '+'), ('-', '-'), ('*', '*'), ('/', '/')])

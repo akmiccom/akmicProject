@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, View
 from calculator.models import Product
-from calculator.forms import CalcPlusForm
+from calculator.forms import CalculatorForm
 
 from glob import glob
 import csv
@@ -28,29 +28,42 @@ with open(csvFile, 'r', encoding='utf-8') as file:
                 },
             )
 
-
-def calculatorPlus(request):
-    params = {
-        'title': 'Calculator',
-        'forms': CalcPlusForm(),
-        'answer': '足し算の答え = ',
-    }
-    
-    if request.method == 'POST':
-        params['answer'] = f'{params["answer"]} {int(request.POST["value1"]) + int(request.POST["value2"])}'
-        params['forms'] = CalcPlusForm(request.POST)
-        
-    return render(request, 'calculator/calcPlus.html', params)
-
-
 class CalculatorView(View):
-    def post(self, request):
+    template_name = 'calculator/calculator.html'
+
+    def get(self, request):
+        form = CalculatorForm()
+        result = None
         params = {
-            'title': 'Calculator',
-            'forms': CalcPlusForm(),
-            'answer': '足し算の答え = ',
+            'form': form,
+            'result': result,
         }
-        params['answer'] = f'{params["answer"]} {int(request.POST["value1"]) + int(request.POST["value2"])}'
-        params['forms'] = CalcPlusForm(request.POST)
-        
-        return render(request, 'calculator/calcPlus.html', params)
+        return render(request, self.template_name, params)
+
+    def post(self, request):
+        form = CalculatorForm(request.POST)
+        result = None
+
+        if form.is_valid():
+            num1 = form.cleaned_data['num1']
+            num2 = form.cleaned_data['num2']
+            operator = form.cleaned_data['operator']
+            
+            if operator == '+':
+                result = num1 + num2
+            elif operator == '-':
+                result = num1 - num2
+            elif operator == '*':
+                result = num1 * num2
+            elif operator == '/':
+                if num2 != 0:
+                    result = num1 / num2
+                else:
+                    result = "Cannot divide by zero"
+
+        params = {
+            'title': 'Simple Calculator',
+            'form': form,
+            'result': result,
+        }
+        return render(request, self.template_name, params)

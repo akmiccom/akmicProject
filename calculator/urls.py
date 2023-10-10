@@ -1,9 +1,8 @@
 from django.urls import path, include
-from calculator.views import ProductListView, calculatorPlus, CalculatorView
+from calculator.views import CalculatorView
+# from calculator.views import ProductListView
 
 urlpatterns = [
-    path('', calculatorPlus, name='calcPlus'),
-    # path('', CalculatorView.as_view(), name='calcPlus'),
-    path('products/', ProductListView.as_view(), name='productList'),
-    # path('csv/upload', CsvUploadView.as_view(), name='csvUpload'),
+    path('', CalculatorView.as_view(), name='calculator'),
+    # path('products/', ProductListView.as_view(), name='productList'),
 ]
