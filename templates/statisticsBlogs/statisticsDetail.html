@@ -4,9 +4,14 @@
   {{ object.title }}
 {% endblock %}
 
+{% block header %}
+  <h1 class="fw-bolder">{{ header_h1 }}</h1>
+  <p class="lead mb-0">{{ header_p }}</p>
+{% endblock %}
+
+<div class="container-lg">
 {% block content %}
-<div class="container-fluid container-lg">
-  <div class="p-4 m-4 bg-light border border-success rounded">
+  <div class="p-3 m-3 bg-light border border-success rounded">
     <h6>Title : {{ object.chapter }}.{{ object.section }} {{ object.title }}</h6>
     <h6>_Updated at : {{ object.updated_at }} _Created at : {{ object.created_at }}</h6>
     <div>
@@ -18,5 +23,5 @@
       <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-primary">Delete</a>
     </ul>
     </div>
+    {% endblock %}
   </div>
-{% endblock %}

@@ -9,10 +9,25 @@ class ListStatisticsBlog(ListView):
     model = StatisticsBlog
     ordering = ('chapter', 'section')
     template_name = 'statisticsBlogs/statisticsList.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Statistics blogs'
+        context['header_h1'] = 'This is a page of Statistics.'
+        context['header_p'] = "We'll start from the basics, so let's do our best."
+        return context
+
 
 class DetailStatisticsBlog(DetailView):
     model = StatisticsBlog
     template_name = 'statisticsBlogs/statisticsDetail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['header_h1'] = 'This is a page of Statistics.'
+        context['header_p'] = "We'll start from the basics, so let's do our best."
+        return context
+    
 
 class DeleteStatisticsBlog(DeleteView):
     model = StatisticsBlog
@@ -25,7 +40,7 @@ class CreateStatisticsBlog(CreateView):
     template_name = 'statisticsBlogs/statisticsCreate.html'
     success_url = reverse_lazy('statisticsList')
     
-class UpdateStatisticsBlog(CreateView):
+class UpdateStatisticsBlog(UpdateView):
     model = StatisticsBlog
     fields = ('chapter', 'section', 'title', 'text')
     template_name = 'statisticsBlogs/statisticsUpdate.html'
