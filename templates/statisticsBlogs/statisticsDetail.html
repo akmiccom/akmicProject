@@ -20,7 +20,7 @@
     <ul>
       <a href="{% url 'statisticsList' %}" class="btn btn-primary">Back to blog list</a>
       <a href="{% url 'statisticsUpdate' object.pk %}" class="btn btn-primary">Update</a>
-      <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-primary">Delete</a>
+      {% comment %} <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-primary">Delete</a> {% endcomment %}
     </ul>
     </div>
     {% endblock %}

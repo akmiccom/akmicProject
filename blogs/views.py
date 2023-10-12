@@ -52,8 +52,6 @@ def readMarkdown(file):
         
     return metadata['title'], metadata['category'], metadata['author'], markdown
 
-
-
 markdown_dir = os.path.join(settings.BASE_DIR, 'blogs', 'markdown')
 for file in glob(f'{markdown_dir}/*.md'):
     title, category, author, text = readMarkdown(file)

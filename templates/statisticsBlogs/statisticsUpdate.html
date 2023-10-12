@@ -4,6 +4,11 @@
   Update
 {% endblock %}
 
+{% block header %}
+  <h1 class="fw-bolder">{{ header_h1 }}</h1>
+  <p class="lead mb-0">{{ header_p }}</p>
+{% endblock %}
+
 {% block content %}
 <div class="p-4 m-4 bg-light border border-success rounded">
   <form method="post">
