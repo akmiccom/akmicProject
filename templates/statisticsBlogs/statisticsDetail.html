@@ -12,8 +12,8 @@
 <div class="container-lg">
 {% block content %}
   <div class="p-3 m-3 bg-light border border-success rounded">
-    <h6>Title : {{ object.chapter }}.{{ object.section }} {{ object.title }}</h6>
-    <h6>_Updated at : {{ object.updated_at }} _Created at : {{ object.created_at }}</h6>
+    <h1>{{ object.chapter }}.{{ object.section }} &nbsp; {{ object.title }}</h1>
+    <h5>Updated at : {{ object.updated_at }} Created at : {{ object.created_at }}</h5>
     <div>
       {{ object.convert_markdown_to_html|safe }}
     </div>
