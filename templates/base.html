@@ -23,6 +23,8 @@
     <!-- highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
     <title>
       {% block title %}
 
@@ -46,14 +48,17 @@
     </header>
 
     <!-- Page Content -->
+     <!-- footerの隠れ対策 -->
     <div class="mb-5">
-    {% block content %}{% endblock %}
-  </div>
+      {% block content %}
+      {% endblock %}
+    </div>
 
     <!-- Footer -->
-      {% include "footer.html" %}
+    {% include 'footer.html' %}
 
-    {% comment %} {% block footer %}{% endblock %} {% endcomment %}
+    {% comment %} {% block footer %}
+    {% endblock %} {% endcomment %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
     <script>

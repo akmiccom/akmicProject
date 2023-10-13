@@ -9,21 +9,62 @@
   <p class="lead mb-0">{{ header_p }}</p>
 {% endblock %}
 
-<div class="container-lg">
 {% block content %}
   <!-- Blog list -->
-  <div class="row">
-    {% for item in object_list %}
-        <div class="col-sm-6">
-          <div class="card m-1">
-            <div class="card-body">
-              <div class="small text-muted">{{ item.updated_at }}</div>
-              <h2 class="card-title h4">{{ item.chapter }}-{{ item.section }} {{ item.title }}</h2>
-              <a class="btn btn-info" href="{% url 'statisticsDetail' item.pk %}">Read more →</a>
+  <!--    <div class="row mt-n5">
+    {% for count in counterFotIf %}
+      {% for item in object_list %}
+      {% if item.chapter == count %}
+      <div class="col-sm-6">
+        <div class="card m-1">
+          <div class="card-body">
+            <div class="small text-muted">{{ item.updated_at }}</div>
+            <h2 class="card-title h4">{{ item.chapter }}-{{ item.section }} {{ item.title }}</h2>
+            <a class="btn btn-info" href="{% url 'statisticsDetail' item.pk %}">Read more →</a>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+          <span class="border border-1 border-secondary"></span>
+          {% endfor %}   -->
+
+  <!-- reference https://www.bootdey.com/snippets/view/blog-post-grid-cards#html -->
+  <div class="container">
+    <div class="row mt-n5">
+      {% for count in counterFotIf %}
+      {% for item in object_list %}
+      {% if item.chapter == count %}
+        <div class="col-sm-6 col-lg-4 col-xxl-3 mt-1 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+          <div class="blog-grid">
+            <div class="blog-grid-img position-relative">
+              <!-- <img alt="img" src="#!" /> -->
+            </div>
+            <div class="blog-grid-text p-3">
+              <h3 class="h5 mb-0"><a href="{% url 'statisticsDetail' item.pk %}">{{ item.chapter }}-{{ item.section }} {{ item.title }}</a></h3>
+              <p class="d-inline-block text-truncate" style="max-width: 150px;">
+                {% comment %}This text is quite long, and will be truncated once displayed.{% endcomment %}
+              </p>
+              <div class="meta meta-style2">
+                <ul>
+                  <li>
+                    <i class="fas fa-calendar-alt"></i>{{ item.updated_at }}
+                  </li>
+                  <li>
+                    <a href="#!"><i class="fas fa-user"></i>{{ item.author }} Makoto Yaguchi</a>
+                  </li>
+                  <li>
+                    <i class="fas fa-comments"></i>??</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      {% endfor %}
+        {% endif %}
+        {% endfor %}
+        <span class="border border-1 border-secondary"></span>
+        {% endfor %}
     </div>
-    {% endblock %}
   </div>
+{% endblock %}

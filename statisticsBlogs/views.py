@@ -24,6 +24,7 @@ class ListStatisticsBlogView(ListView):
         context['title'] = title
         context['header_h1'] = header_h1
         context['header_p'] = header_p
+        context['counterFotIf'] = [f'{i+1:02}' for i in range(13)]
         return context
 
 class DetailStatisticsBlogView(DetailView):
@@ -100,10 +101,10 @@ def readMarkdown(file):
     
     return metadata
     
-# markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
-# for file in glob(f'{markdown_dir}/*.md'):
-markdown_dir = r'C:\python\akmicProject\statisticsBlogs\markdown\0101.md'
-for file in glob(markdown_dir):
+markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
+for file in glob(f'{markdown_dir}/*.md'):
+# markdown_dir = r'C:\python\akmicProject\statisticsBlogs\markdown\0101.md'
+# for file in glob(markdown_dir):
     metadata = readMarkdown(file)
     # update_or_create
     StatisticsBlog.objects.update_or_create(
