@@ -4,15 +4,24 @@ category : python
 author : Makoto Yaugchi
 ---
 
-# How To django
-
 [TOC]
 
-## 調査履歴
+## django initial setting
 
-結構難しい
+```
+python -m venv .venv
+.venv/Scripts/activate.ps1
+pip install django --proxy http://10.103.1.2:8080
+python.exe -m pip install --upgrade pip --proxy http://10.103.1.2:8080
+django-admin startpriject config .
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+# open in blowser http://127.0.0.1:8000/admin
+# login
+```
 
-### update_or_create()
+## update_or_create()
 []()
 ```
 obj, created = Person.objects.update_or_create(

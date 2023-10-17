@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ object.title }}
+{% endblock %}
+
+{% block header %}
+  <h1 class="fw-bolder">{{ header_h1 }}</h1>
+  <p class="lead mb-0">{{ header_p }}</p>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row clearfix">
+      <div class="col-lg-8 col-md-12 left-box">
+        {% comment %} <div class="card single_post">
+          {% endcomment %}
+          <div class="body">
+            <div class="img-post">
+              <img class="d-block img-fluid" src="#!" alt="First slide" />
+            </div>
+            <h1 class="text-center alert alert-info">{{ object.title }}</h1>
+            <p>{{ object.convert_markdown_to_html|safe }}</p>
+            <br />
+            <ul>
+              <a href="{% url 'travelBlogList' %}" class="btn btn-primary">Back to blog list</a>
+            </ul>
+            <br />
+          </div>
+          {% comment %}
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

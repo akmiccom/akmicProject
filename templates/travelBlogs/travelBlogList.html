@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block header %}
+  <h1 class="fw-bolder">{{ header_h1 }}</h1>
+  <p class="lead mb-0">{{ header_p }}</p>
+{% endblock %}
+
+{% block content %}
+  <!-- reference https://www.bootdey.com/snippets/view/blog-post-grid-cards#html -->
+  <div class="container">
+    <div class="row mt-n5">
+      {% comment %} <h2 class="text-center"><a href="">Travel Blog</a></h2> {% endcomment %}
+        {% for item in object_list %}
+            <div class="col-sm-6 col-lg-4 col-xxl-3 mt-1 wow fadeInUp" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+              <div class="blog-grid">
+                <div class="blog-grid-img position-relative">
+                  <!-- <img alt="img" src="#!" /> -->
+                </div>
+                <div class="blog-grid-text p-3">
+                  <h3 class="h5 mb-0"><a href="{% url 'travelBlogDetail' item.pk %}">{{ item.title }}</a></h3>
+                  <p class="d-inline-block text-truncate" style="max-width: 150px;">
+                    {% comment %}This text is quite long, and will be truncated once displayed.{% endcomment %}
+                  </p>
+                  <div class="meta meta-style2">
+                    <ul>
+                      <li>
+                        <i class="fas fa-calendar-alt"></i>{{ item.updated_at }}
+                      </li>
+                      <li>
+                        <a href="#!"><i class="fas fa-user"></i>{{ item.author }}</a>
+                      </li>
+                      <li>
+                        {% comment %} <a href="#!"> {% endcomment %}
+                          <i class="fas fa-comments"></i>??
+                        {% comment %} </a> {% endcomment %}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

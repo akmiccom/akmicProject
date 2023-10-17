@@ -10,10 +10,10 @@ urlpatterns = [
     path('', TopPageView.as_view(), name='topPage'),
     path('markdownx/', include('markdownx.urls')), 
     path('blogs/', include('blogs.urls')),
-    # path('blog/', include('blog.urls')),
     path('statisticsBlogs/', include('statisticsBlogs.urls')),
     path('accounts/', include('accounts.urls')),
     path('calculator/', include('calculator.urls')),
+    path('travelBlogs/', include('travelBlogs.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
