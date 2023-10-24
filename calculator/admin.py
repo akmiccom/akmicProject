@@ -1,4 +1,4 @@
 from django.contrib import admin
-from calculator.models import Product
+from calculator.models import Calculator
 
-admin.site.register(Product)
+admin.site.register(Calculator)

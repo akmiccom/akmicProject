@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView, View
-from calculator.models import Product
+from calculator.models import Calculator
 from calculator.forms import CalculatorForm
 
 from glob import glob
@@ -9,24 +9,11 @@ import csv
 
 
 
-class ProductListView(ListView):
-    model = Product
-    template_name = 'calculator/product_list.html'
-    context_object_name = 'products'
+class CalculatorListView(ListView):
+    model = Calculator
+    template_name = 'calculator/calculatorList.html'
+    context_object_name = 'calculatorList'
     
-
-csvFile = 'calculator/csv/sampleData.csv'
-with open(csvFile, 'r', encoding='utf-8') as file:
-    csv_reader = csv.DictReader(file)
-    for row in csv_reader:
-        # update_or_create
-        Product.objects.update_or_create(
-            name=row['name'],
-            price=row['price'],
-            defaults={
-                'description': row['description'],
-                },
-            )
 
 class CalculatorView(View):
     template_name = 'calculator/calculator.html'

@@ -11,10 +11,9 @@ from django.db import models
 #     def __str__(self):
 #         return f'{self.lastName} {self.firstName}
 
-class Product(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
+class Calculator(models.Model):
+    title = models.CharField(max_length=128, unique=True)
     description = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.title
