@@ -1,9 +1,10 @@
 from django.urls import path, include
-from calculator.views import CalculatorListView, CalculatorView
-# from calculator.views import ProductListView
+from calculator.views import CalculatorListView, CalcSimpleView
+
 
 urlpatterns = [
     path('', CalculatorListView.as_view(), name='calculatorList'),
-    path('calculator/<int:pk>/', CalculatorView.as_view(), name='simpleCalculator'),
+    path('simpleCalculator', CalcSimpleView.as_view(), name='SimpleCalculator'),
+    path('comlexCalculator', CalcSimpleView.as_view(), name='ComplexCalculator'),
     # path('products/', ProductListView.as_view(), name='productList'),
 ]

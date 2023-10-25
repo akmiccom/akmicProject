@@ -10,25 +10,6 @@
 {% endblock %}
 
 {% block content %}
-  <!-- Blog list -->
-  <!--      <div class="row mt-n5">
-    {% for count in counterFotIf %}
-      {% for item in object_list %}
-      {% if item.chapter == count %}
-      <div class="col-sm-6">
-        <div class="card m-1">
-          <div class="card-body">
-            <div class="small text-muted">{{ item.updated_at }}</div>
-            <h2 class="card-title h4">{{ item.chapter }}-{{ item.section }} {{ item.title }}</h2>
-            <a class="btn btn-info" href="{% url 'statisticsDetail' item.pk %}">Read more →</a>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-          {% endfor %}
-          <span class="border border-1 border-secondary"></span>
-          {% endfor %}     -->
-
   <!-- reference https://www.bootdey.com/snippets/view/blog-post-grid-cards#html -->
   <div class="container">
     <div class="row mt-n5">
@@ -55,9 +36,10 @@
                         <a href="#!"><i class="fas fa-user"></i>{{ item.author }} Makoto Yaguchi</a>
                       </li>
                       <li>
-                        {% comment %} <a href="#!"> {% endcomment %}
-                          <i class="fas fa-comments"></i>??
-                        {% comment %} </a> {% endcomment %}
+                        {% comment %} <a href="#!">
+                          {% endcomment %}
+                          <i class="fas fa-comments"></i>??{% comment %}
+                        </a> {% endcomment %}
                       </li>
                     </ul>
                   </div>

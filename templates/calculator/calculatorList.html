@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block header %}
-  <h1 class="fw-bolder">This is a page of product List etc.</h1>
-  <p class="lead mb-0">We'll start from the basics, so let's do our best.</p>
+  <h1 class="fw-bolder">様々な計算機を準備しています</h1>
+  <p class="lead mb-0">準備中です</p>
 {% endblock %}
 
 {% block content %}
@@ -15,15 +15,15 @@
       <tr>
         <th th scope="col">#</th>
         <th scope="col">Name</th>
-        <th scope="col">price</th>
         <th scope="col">Description</th>
       </tr>
     </thead>
-    {% for info in calculatorList %}
+    {% for item in calculatorList %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
-        <td>{{ info.title }}</td>
-        <td>{{ info.description }}</td>
+        {% comment %} <td><a href="{% url 'simpleCalculator' %}">{{ item.title }}</a></td> {% endcomment %}
+        <td><a href="{% url item.title %}">{{ item.title }}</a></td>
+        <td>{{ item.description }}</td>
       </tr>
     {% endfor %}
   </table>

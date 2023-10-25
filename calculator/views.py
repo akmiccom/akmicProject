@@ -8,15 +8,15 @@ from glob import glob
 import csv
 
 
-
 class CalculatorListView(ListView):
     model = Calculator
     template_name = 'calculator/calculatorList.html'
     context_object_name = 'calculatorList'
     
 
-class CalculatorView(View):
-    template_name = 'calculator/calculator.html'
+class CalcSimpleView(View):
+    model = Calculator
+    template_name = 'calculator/SimpleCalculator.html'
 
     def get(self, request):
         form = CalculatorForm()
@@ -54,4 +54,5 @@ class CalculatorView(View):
             'form': form,
             'result': result,
         }
+        
         return render(request, self.template_name, params)
