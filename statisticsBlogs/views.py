@@ -24,7 +24,7 @@ class ListStatisticsBlogView(ListView):
         context['title'] = title
         context['header_h1'] = header_h1
         context['header_p'] = header_p
-        context['counterFotIf'] = [f'{i+1:02}' for i in range(13)]
+        context['counterFotIf'] = [f'{i+1:02}' for i in range(15)]
         return context
 
 class DetailStatisticsBlogView(DetailView):
