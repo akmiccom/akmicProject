@@ -12,7 +12,3 @@ Author : Makoto Yaugchi
 
 結構難しい
 
-## note
-<!-- 変更すると新しいBlogが作成される -->
-Category : python
-Author : Makoto Yaugchi

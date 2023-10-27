@@ -1,4 +1,0 @@
-django
-markdown
-django-markdownx
-django-pandas

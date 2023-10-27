@@ -103,8 +103,7 @@ def readMarkdown(file):
     
 markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
 for file in glob(f'{markdown_dir}/*.md'):
-# markdown_dir = r'C:\python\akmicProject\statisticsBlogs\markdown\0101.md'
-# for file in glob(markdown_dir):
+
     metadata = readMarkdown(file)
     # update_or_create
     StatisticsBlog.objects.update_or_create(
