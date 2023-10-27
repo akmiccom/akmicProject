@@ -22,4 +22,3 @@ class StatisticsBlog(models.Model):
     
     def convert_markdown_to_html(self):
         return markdownify(self.text)
-    
