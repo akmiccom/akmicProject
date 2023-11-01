@@ -11,8 +11,8 @@ import re
 
 
 title = 'Statistics blogs'
-header_h1 = 'This is a page of Statistics.'
-header_p = "We'll start from the basics, so let's do our best."
+header_h1 = 'ここでは統計学の解説をしています'
+header_p = "入門編ということにはなっていますが、少し難しい部分もあるかもしれません"
 
 class ListStatisticsBlogView(ListView):
     model = StatisticsBlog

@@ -14,6 +14,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('calculator/', include('calculator.urls')),
     path('travelBlogs/', include('travelBlogs.urls')),
+    path('mdToHtml/', include('mdToHtml.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

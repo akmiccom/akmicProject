@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="{% static './css/style_mdToHtml' %}" rel="stylesheet" />
+
+
+{% for item in object_list %}
+
+<h3><a href="{% url 'detail' item.pk %}">{{ item.title }}</a></h3>
+
+{% endfor %}
+

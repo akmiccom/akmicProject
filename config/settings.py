@@ -1,4 +1,14 @@
 from pathlib import Path
+
+from markdown.extensions.codehilite import CodeHiliteExtension
+from markdown.extensions.toc import TocExtension
+from markdown.extensions.sane_lists import SaneListExtension
+from markdown.extensions.nl2br import Nl2BrExtension
+from markdown.extensions.fenced_code import FencedCodeExtension
+from markdown.extensions.wikilinks import WikiLinkExtension
+from markdown.extensions.footnotes import FootnoteExtension
+from markdown.extensions.tables import TableExtension
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,6 +42,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'statisticsBlogs.apps.StatisticsblogsConfig',
     'calculator.apps.CalculatorConfig',
+    'mdToHtml.apps.MdtohtmlConfig',
     'markdownx',
 ]
 
@@ -129,7 +140,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # markdownx settings 
 # https://selfs-ryo.com/detail/django_vue_markdown
 MARKDOWNX_MARKDOWN_EXTENSIONS = [
-    'markdown.extensions.extra',    # テーブル、コードブロック等
-    'markdown.extensions.toc',       # 目次
-    'markdown.extensions.nl2br',    # 改行
+    'extra',
+    CodeHiliteExtension(),
+    TocExtension(marker="[TOC]", title='Contents', baselevel=1, toc_depth=2),
+    SaneListExtension(),
+    Nl2BrExtension(),
+    FencedCodeExtension(),
+    WikiLinkExtension(base_url="/wiki/", end_url=".html"),
+    FootnoteExtension(),
+    TableExtension(use_align_attribute=True),
 ]

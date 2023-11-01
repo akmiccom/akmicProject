@@ -1,0 +1,122 @@
+html body {
+    background-color: aliceblue;
+}
+
+html body h1,
+html body h2,
+html body h3,
+html body h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    /* color: #586e75; */
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding: auto;
+}
+
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+span.toctitle {
+    font-size: 120%;
+    font-weight: bolder;
+    color: blue;
+}
+
+div.toc {
+    padding: 20px;
+    border: 1px solid #494949;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 3%;
+
+}
+
+table {
+    border-collapse: collapse;
+    border-left: 1px solid #AAAAAA;
+    border-top: 1px solid #AAAAAA;
+    line-height: 1.5;
+    text-align: left;
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+table th {
+    background-color: #E3E7E9;
+    border-bottom: 1px solid #AAAAAA;
+    border-right: 1px solid #AAAAAA;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table thead th {
+    background-color: #ABB7BC;
+    border-right: 1px solid #FFFFFF;
+    color: #FFFFFF;
+}
+
+table thead th:last-child {
+    border-right: 1px solid #AAAAAA;
+}
+
+table td {
+    border-bottom: 1px solid #AAAAAA;
+    border-right: 1px solid #AAAAAA;
+    font-size: 13px;
+    padding: 10px;
+    vertical-align: top;
+}
+
+h1 {
+    /*文字の上下 左右の余白*/
+    padding: 0.4em 0.5em;
+    /*文字色*/
+    color: #494949;
+    /*背景色*/
+    background: #f4f4f4;
+    /*左線*/
+    border-left: solid 5px #7db4e6;
+    /*下線*/
+    border-bottom: solid 3px #d7d7d7;
+    /* 中央揃え */
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+    padding: 0.5em;
+    background: #7db4e6;
+    color: white;
+    text-align: center;
+}
+
+h2::before {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 0;
+    border: none;
+    border-bottom: solid 15px transparent;
+    border-right: solid 20px rgb(149, 158, 155);
+}
+
+
+h3 {
+    counter-reset: section;
+    text-decoration: underline;
+}
+
+h4 {
+    text-decoration: underline dotted;
+}
