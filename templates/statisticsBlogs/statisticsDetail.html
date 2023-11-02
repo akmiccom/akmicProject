@@ -5,42 +5,19 @@
 {% endblock %}
 
 {% block header %}
-  <p class="display-5">{{ header_h1 }}</p>
-  <p class="lead mb-0">{{ header_p }}</p>
+  <p class="display-6">{{ header_h1 }}</p>
+  <p>{{ header_p }}</p>
 {% endblock %}
 
 {% block content %}
   <div class="container">
-    <div class="row clearfix">
-      <div class="col-lg-8 col-md-12 left-box">
-        <div class="body">
-          <div class="img-post">
-            <img class="d-block img-fluid" src="#!" alt="First slide" />
-          </div>
-          <h1>{{ object.chapter }}.{{ object.section }} &nbsp; {{ object.title }}</h1>
-          {{ object.convert_markdown_to_html|safe }}
-          <br />
-          <ul>
-            <a href="{% url 'statisticsList' %}" class="btn btn-primary">Back to blog list</a>
-            <a href="{% url 'statisticsUpdate' object.pk %}" class="btn btn-success">Update</a>
-            <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-danger">Delete</a>
-          </ul>
-          <br />
-        </div>
-      </div>
-    </div>
-  </div>
-{% endblock %}
-
-<!--    
-  <div class="p-3 m-3 bg-light border border-success rounded">
-    <h1>{{ object.chapter }}.{{ object.section }} &nbsp; {{ object.title }}</h1>
-    <h5>Updated at : {{ object.updated_at }} Created at : {{ object.created_at }}</h5>
-    <div>{{ object.convert_markdown_to_html|safe }}</div>
-    <ul>
-      <a href="{% url 'statisticsList' %}" class="btn btn-primary">Back to blog list</a>
-      <a href="{% url 'statisticsUpdate' object.pk %}" class="btn btn-primary">Update</a>
-      {% comment %} <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-primary">Delete</a> {% endcomment %}
+    <img class="d-block img-fluid" src="#!" alt="First slide" />
+    {{ object.markdownToHtml|safe }}
+    <ul class="btn">
+      <a href="#" class="btn btn-secondary">Return to top of page</a>
+      <a href="{% url 'statisticsList' %}" class="btn btn-primary">Return to blog list</a>
+      {% comment %} <a href="{% url 'statisticsUpdate' object.pk %}" class="btn btn-success">Update</a> {% endcomment %}
+      {% comment %} <a href="{% url 'statisticsDelete' object.pk %}" class="btn btn-danger">Delete</a> {% endcomment %}
     </ul>
   </div>
-    -->
+{% endblock %}

@@ -1,9 +1,6 @@
 from django.db import models
 from config.settings import MARKDOWNX_MARKDOWN_EXTENSIONS
 from markdown import markdown
-from django.conf import settings
-import os
-from glob import glob
 
 class MdToHtml(models.Model):
     

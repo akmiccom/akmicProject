@@ -1,5 +1,6 @@
 from django.urls import path, include
-from statisticsBlogs.views import ListStatisticsBlogView, DetailStatisticsBlogView, CreateStatisticsBlogView, UpdateStatisticsBlogView
+from statisticsBlogs.views import ListStatisticsBlogView, DetailStatisticsBlogView
+from statisticsBlogs.views import CreateStatisticsBlogView, UpdateStatisticsBlogView
 
 urlpatterns = [
     path('', ListStatisticsBlogView.as_view(), name='statisticsList'),

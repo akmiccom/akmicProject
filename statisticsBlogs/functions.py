@@ -8,7 +8,6 @@ import re
 
 # Create your tests here.
 
-
 def updata_or_create_markdown(markdown_dir):
     
     for file in glob(f'{markdown_dir}/*.md'):
@@ -34,7 +33,6 @@ def updata_or_create_markdown(markdown_dir):
             'markdown': metadata['markdown'],
             },
     )
-        
         
 if __name__ == '__main__':
     markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
