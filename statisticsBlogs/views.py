@@ -4,7 +4,7 @@ from django.conf import settings
 from django.views.generic import ListView, DetailView, DeleteView, CreateView, UpdateView
 from statisticsBlogs.models import StatisticsBlog
 
-from statisticsBlogs.functions import updata_or_create_markdown
+# from statisticsBlogs.functions import updata_or_create_markdown
 import os
 
 
@@ -62,8 +62,8 @@ class CreateStatisticsBlogView(CreateView):
 
 
 # update or create on specified folder
-markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
-updata_or_create_markdown(markdown_dir)
+# markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')
+# updata_or_create_markdown(markdown_dir)
     
 # with open(r'statisticsBlogs\csv\統計学入門.csv', 'r', encoding='utf-8') as f:
 #     reader = csv.reader(f, delimiter=',')

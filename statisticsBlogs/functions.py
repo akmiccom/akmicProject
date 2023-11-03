@@ -21,7 +21,7 @@ def updata_or_create_markdown(markdown_dir):
         'chapter': chapter,
         'section': section,
         'markdown': '\n'.join(lines[end+1:]),
-    }
+        }
         metadata_lines = lines[start+1:end]
         for metadata_line in metadata_lines:
             key, value = metadata_line.split(':')
@@ -32,7 +32,8 @@ def updata_or_create_markdown(markdown_dir):
         defaults={
             'markdown': metadata['markdown'],
             },
-    )
+        )
+        
         
 if __name__ == '__main__':
     markdown_dir = os.path.join(settings.BASE_DIR, 'statisticsBlogs', 'markdown')

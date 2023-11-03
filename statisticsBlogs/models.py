@@ -12,8 +12,8 @@ class StatisticsBlog(models.Model):
     title = models.CharField(verbose_name='Title', blank=False, null=False, max_length=128,)
     markdown = MarkdownxField(verbose_name='Text', blank=True, null=True, default='',)
     # 追加予定反映されていない
-    category = models.CharField(verbose_name='Category', blank=True, null=True, max_length=128,)
-    author = models.CharField(verbose_name='Author', blank=True, null=True, max_length=128,)
+    # category = models.CharField(verbose_name='Category', blank=True, null=True, max_length=128,)
+    # author = models.CharField(verbose_name='Author', blank=True, null=True, max_length=128,)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at =models.DateTimeField(auto_now=True)
 

@@ -89,20 +89,47 @@ table td {
     vertical-align: top;
 }
 
+
+/* リボンタイプ */
 h1 {
-    /*文字の上下 左右の余白*/
     padding: 0.4em 0.5em;
-    /*文字色*/
     color: #494949;
-    /*背景色*/
     background: #f4f4f4;
-    /*左線*/
     border-left: solid 5px #7db4e6;
-    /*下線*/
     border-bottom: solid 3px #d7d7d7;
-    /* 中央揃え */
     text-align: center;
 }
+
+/* シンプルタイプ */
+/* h1 {
+    border-bottom: solid 5px #6594e0;
+} */
+
+/* 左右にライン */
+/* h1 {
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    color: #494949;
+}
+  
+  h1::before,
+  h1::after {
+    content: '';
+      width: 70px;
+      height: 3px;
+      background-color: blue;
+}
+  
+  h1::before {
+    margin-right: 20px; 
+}
+  
+  h1::after {
+    margin-left: 20px; 
+} */
+
 
 h2 {
     position: relative;
